@@ -4,4 +4,8 @@ class Course < ApplicationRecord
   end
   has_many :lessions
   has_and_belongs_to_many :categories
+
+  def first_lession
+    self.lessions.order(:position).first
+  end
 end

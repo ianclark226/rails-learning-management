@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :lessions
   devise_for :admins, skip: [ :registrations ]
   devise_for :users
-  resources :courses
+  resources :courses do
+    resources :lessions
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   authenticated :admin_user do

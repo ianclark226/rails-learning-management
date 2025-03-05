@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_02_172715) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_02_204317) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -75,12 +75,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_02_172715) do
     t.index ["course_id"], name: "index_category_courses_on_course_id"
   end
 
-  create_table "courses", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+# Could not dump table "courses" because of following StandardError
+#   Unknown type 'test' for column 'premium_description'
+
 
   create_table "lessions", force: :cascade do |t|
     t.string "title"
@@ -89,6 +86,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_02_172715) do
     t.integer "course_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "position"
     t.index ["course_id"], name: "index_lessions_on_course_id"
   end
 
@@ -100,6 +98,10 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_02_172715) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
