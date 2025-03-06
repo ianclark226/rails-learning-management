@@ -1,16 +1,20 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
 
-// Connects to data-controller="navbar"
 export default class extends Controller {
+  static targets = ["mobileLinks", "bars", "close"];
+
+  connect() {
+    console.log("Navbar controller connected");
+  }
+
   toggle() {
-    const el = document.getElementById('mobile-links')
-    const barsEl = document.getElementById('bars')
-    const closeEl = document.getElementById("close")
-
-    el.classList.toggle("hidden")
-    barsEl.classList.toggle("hidden")
-    closeEl.classList.toggle("hidden")
-
+    console.log("Toggling menu...");
+  
+    this.mobileLinksTarget.classList.toggle("hidden");
+    this.mobileLinksTarget.classList.toggle("opacity-0");
+    this.mobileLinksTarget.classList.toggle("opacity-100");
+    this.barsTarget.classList.toggle("hidden");
+    this.closeTarget.classList.toggle("hidden");
   }
-  }
+}
 
