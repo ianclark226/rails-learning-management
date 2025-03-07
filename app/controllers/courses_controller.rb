@@ -8,6 +8,7 @@ class CoursesController < ApplicationController
 
   # GET /courses/1 or /courses/1.json
   def show
+    @completed_lessions = current_user&.lession_users&.joins(:lession)&.where(completed: true, lession: { course: @course })&.pluck(:lession_id)
   end
 
   # GET /courses/new

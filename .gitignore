@@ -8,8 +8,10 @@
 /.bundle
 /https_dr/
 
+
 # Ignore all environment files.
 /.env*
+# /config/credentials.yml.enc
 
 # Ignore all logfiles and tempfiles.
 /log/*
