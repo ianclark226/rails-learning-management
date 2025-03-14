@@ -6,6 +6,9 @@ class Course < ApplicationRecord
   has_many :course_users
   has_and_belongs_to_many :categories
 
+  has_rich_text :description
+  has_rich_text :premium_description
+
   def first_lession
     self.lessions.order(:position).first
   end
