@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_06_164433) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_12_152329) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -75,15 +75,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_06_164433) do
     t.index ["course_id"], name: "index_category_courses_on_course_id"
   end
 
-  create_table "courses", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
+  create_table "course_users", force: :cascade do |t|
+    t.integer "course_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "paid"
-    t.string "stripe_price_id"
-    t.text "premium_description"
+    t.index ["course_id"], name: "index_course_users_on_course_id"
+    t.index ["user_id"], name: "index_course_users_on_user_id"
   end
+
+# Could not dump table "courses" because of following StandardError
+#   Unknown type 'test' for column 'premium_description'
 
 
   create_table "lession_users", force: :cascade do |t|
@@ -125,6 +127,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_06_164433) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "course_users", "courses"
+  add_foreign_key "course_users", "users"
   add_foreign_key "lession_users", "lessions"
   add_foreign_key "lession_users", "users"
   add_foreign_key "lessions", "courses"

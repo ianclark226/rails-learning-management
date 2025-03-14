@@ -71,3 +71,5 @@ gem "devise", "~> 4.9"
 gem "stripe", "~> 10.3"
 
 gem "rack-cors", require: "rack/cors"
+
+gem "ngrok-api"
