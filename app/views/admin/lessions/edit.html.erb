@@ -1,0 +1,12 @@
+<% content_for :title, "Editing lession" %>
+
+<h1>Editing lession</h1>
+
+<%= render "form", admin_lession: @admin_lession %>
+
+<br>
+
+<div>
+  <%= link_to "Show this lession", @admin_lession %> |
+  <%= link_to "Back to lessions", admin_lessions_path %>
+</div>

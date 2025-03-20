@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   resources :checkouts, only: [ :create ]
 
   namespace :admin do
-    resources :courses
+    resources :courses do
+      resources :lessions
+    end
   end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
