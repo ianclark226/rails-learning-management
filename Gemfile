@@ -73,3 +73,7 @@ gem "stripe", "~> 10.3"
 gem "rack-cors", require: "rack/cors"
 
 gem "ngrok-api"
+
+gem 'streamio-ffmpeg'
+
+gem "acts_as_list", "~> 1.0"

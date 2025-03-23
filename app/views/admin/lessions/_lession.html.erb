@@ -1,2 +1,18 @@
-<div id="<%= dom_id lession %>">
-</div>
+<div id="<%= dom_id lession %>" class="max-w-sm min-w-64 rounded-b overflow-hidden shadow-lg hover:bg-amaranth-100">
+    <%= link_to [:admin, @admin_course, lession] do %>
+      <% if lession.video.representable? %>
+        <%= image_tag lession.video.preview(:thumb), class: "w-full rounded-t" %>
+      <% else %>
+        <%= image_tag("2udpgz.jpg") %>
+      <% end %>
+  
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">
+          <% if lession.paid %>
+            <%= icon('fa-solid', 'lock', class: "mr-2 text-gray-600") %>
+          <% end %>
+          <%= lession.title %> 
+        </div>
+      </div>
+    <% end %>
+  </div>

@@ -8,6 +8,7 @@
 /.bundle
 /https_dr/
 /vendor/
+/ffmpeg/
 
 
 # Ignore all environment files.

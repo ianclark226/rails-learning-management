@@ -1,0 +1,1 @@
+ENV['PATH'] += ";C:\\Program Files\\FFmpeg\\bin" if Rails.env.development? || Rails.env.test?

@@ -1,10 +1,10 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @admin_lession %>
+<%= render template: "admin/lessions/show", locals: { admin_lession: @admin_lession } %>
 
 <div>
-  <%= link_to "Edit this lession", edit_admin_lession_path(@admin_lession) %> |
-  <%= link_to "Back to lessions", admin_lessions_path %>
+  <%= link_to "Edit this lession", edit_admin_course_lession_path(@admin_lession) %> 
+  <%= link_to "Back to lessions", admin_course_lessions_path %>
 
   <%= button_to "Destroy this lession", @admin_lession, method: :delete %>
 </div>

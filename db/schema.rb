@@ -96,16 +96,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_14_153906) do
 
 # Could not dump table "courses" because of following StandardError
 #   Unknown type 'test' for column 'premium_description'
-  create_table "courses", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "paid"
-    t.sting "stripe_price_id"
-    t.text "premium_description"
-    
-  end
 
 
   create_table "lession_users", force: :cascade do |t|
