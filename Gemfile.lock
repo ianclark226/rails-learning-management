@@ -354,7 +354,7 @@ GEM
     streamio-ffmpeg (3.0.2)
       multi_json (~> 1.8)
     stringio (3.1.5)
-    stripe (10.15.0)
+    stripe (13.5.0)
     tailwindcss-rails (4.2.1)
       railties (>= 7.0.0)
       tailwindcss-ruby (~> 4.0)
@@ -428,7 +428,7 @@ DEPENDENCIES
   sqlite3 (>= 2.1)
   stimulus-rails
   streamio-ffmpeg
-  stripe (~> 10.3)
+  stripe (~> 13.5)
   tailwindcss-rails
   thruster
   turbo-rails
