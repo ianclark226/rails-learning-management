@@ -1,8 +1,7 @@
-<%= form_with(model: admin_lession) do |form| %>
+<%= form_with(model: [:admin, @admin_course, admin_lession ], html: { multipart: true }) do |form| %>
   <% if admin_lession.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(admin_lession.errors.count, "error") %> prohibited this admin_lession from being saved:</h2>
-
       <ul>
         <% admin_lession.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,7 +10,47 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.submit %>
+  <div class="flex flex-col mt-4">
+    <label for="title" class="text-sm">Title</label>
+    <%= form.text_field :title, class: "rounded", id: "title", placeholder: "Lesson title" %>
   </div>
-<% end %>
+
+  <div class="flex flex-col mt-4">
+    <label for="description" class="text-sm">Description</label>
+    <%= form.rich_text_area :description, class: "rounded", id: "description", placeholder: "Lesson description" %>
+  </div>
+
+  <div class="rounded mt-4">
+    <div class="flex flex-col">
+      <% if admin_lession.video.attached? %>
+        <% if admin_lession.video.previewable? %>
+          <%= image_tag admin_lession.video.preview(resize: "300x300"), class: "w-full rounded-t" %>
+        <% else %>
+          <%= image_tag("2udpgz.jpg") %>
+        <% end %>
+      <% else %>
+        <%= image_tag("2udpgz.jpg") %>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- ✅ Add this block to allow video uploads -->
+  <div class="flex flex-col mt-4">
+    <label for="video" class="text-sm">Upload Video</label>
+    <%= form.file_field :video, id: "video", class: "border rounded p-2" %>
+  </div>
+
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">
+      <% if admin_lession.paid %>
+        <%= icon('fa-solid', 'lock', class: "mr-2 text-gray-600") %>
+      <% end %>
+      <%= admin_lession.title %>
+    </div>
+  </div>
+</div>
+
+  <div>
+    <%= form.submit "Submit", class: "bg-green-500 hover:bg-green-600 text-white rounded cursor-pointer px-4 py-2 mt-4" %>
+  </div>
+<% end %> <!-- ✅ Closing the form_with block -->
