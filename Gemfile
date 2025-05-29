@@ -68,7 +68,7 @@ gem "font-awesome-sass", "~> 6.7.2"
 
 gem "devise", "~> 4.9"
 
-gem "stripe", "~> 10.3"
+gem "stripe", "~> 15.2"
 
 gem "rack-cors", require: "rack/cors"
 
